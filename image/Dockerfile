@@ -24,6 +24,4 @@ RUN apt-get update && apt-get install -y apt-utils && apt-get install -y \
     && pip3 install -r dehydrated-hetzner-hook/requirements.txt \
     && sed -i -e 's@#!/usr/bin/env python@#!/usr/bin/env python3@' /opt/dehydrated-hetzner-hook/hook.py
 
-VOLUME "/etc/dehydrated"
-
 ENTRYPOINT ["/opt/dehydrated/dehydrated"]
