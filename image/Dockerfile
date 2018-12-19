@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y apt-utils && apt-get install -y \
     && pip3 install -r dehydrated-hetzner-hook/requirements.txt \
     && pip3 uninstall -y pyopenssl \
     && pip3 install pyopenssl \
-    && sed -i -e 's@#!/usr/bin/env python@#!/usr/bin/env python3@' /opt/dehydrated-hetzner-hook/hook.py
+    && sed -i -e 's@#!/usr/bin/env python@#!/usr/bin/env python3@' /opt/dehydrated-hetzner-hook/hook.py \
+    && sed -i -e 's@ Hetzner hook executing {}@  Hetzner hook executing %s@' /opt/dehydrated-hetzner-hook/hook.py
 
 ENTRYPOINT ["/opt/dehydrated/dehydrated"]
