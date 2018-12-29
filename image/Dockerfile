@@ -26,7 +26,6 @@ RUN apt-get update && apt-get install -y apt-utils && apt-get install -y \
     && pip3 uninstall -y pyopenssl \
     && pip3 install pyopenssl \
     && sed -i -e 's@#!/usr/bin/env python@#!/usr/bin/env python3@' /opt/dehydrated-hetzner-hook/hook.py \
-    && sed -i -e 's@ Hetzner hook executing {}@  Hetzner hook executing %s@' /opt/dehydrated-hetzner-hook/hook.py \
     && ( echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen ) \
     && locale-gen \
     && ( echo "export LANG=en_US.UTF-8" >> /etc/environment )
