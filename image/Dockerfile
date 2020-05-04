@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster
 MAINTAINER Christian Simon
 
 RUN apt-get update && apt-get install -y apt-utils && apt-get install -y \
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y apt-utils && apt-get install -y \
     && cp docs/examples/domains.txt /etc/dehydrated/ \
     && ln -s /opt/dehydrated/dehydrated /usr/local/bin/ \
     && cd /opt \
-    && git clone https://github.com/rembik/dehydrated-hetzner-hook.git \
+    && git clone https://github.com/illucit/dehydrated-hetzner-hook.git \
     && ln -s /opt/dehydrated-hetzner-hook/ /etc/dehydrated/hooks/hetzner \
     && pip3 install -r dehydrated-hetzner-hook/requirements.txt \
     && pip3 uninstall -y pyopenssl \
